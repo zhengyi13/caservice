@@ -1,0 +1,29 @@
+syntax = "proto3";
+
+option go_package = "github.com/zhengyi13/caservice/csrserver";
+option java_multiple_files = true;
+option java_package = "io.zhengyi13.caservice.csrserver";
+option java_outer_classname = "CertServerProto";
+
+package csrserver;
+
+service CSRService {
+  rpc CreateCSR (CSRRequest) returns (CSRResponse) {}
+  rpc SignCSR (SignCSRRequest) returns (SignCSRResponse) {}
+}
+
+message CSRRequest {
+  string cn = 1;
+}
+
+message CSRResponse {
+  string cert = 1;
+}
+
+message SignCSRRequest {
+  string cn = 1;
+}
+
+message SignCSRResponse {
+  string cert = 1;
+}
